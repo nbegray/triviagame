@@ -1,67 +1,36 @@
-$(document).ready(function () {
+$(document).ready(function (){
+$("#start").on('click', function () {
 
-    var quizContainer = document.getElementById("quiz");
-    var resultsContainer = document.getElementById("results");
-    var submitButton = document.getElementById("submit");
-    console.log(quizContainer);
-
-    var currentQuestion = myQuestions[i],
-    var answers = [],
-
-
-    function buildQuiz() {
-        var output = myQuestions[i];
-
-
-
-        var myQuestions = [{
-            question: "Why am I building this quiz?",
-            answers: { a: "no idea", b: "you wanted to?", c: "it was homework - thanks Tucker..." },
-            correctAnswer = "c",
-        },
-
+    for (i = 0; i < questions.length; i++)
+        $("#quizsub").append("<h3>" + questions[i] + questions + "</h3>")
         {
-            question: "Who am I?",
-            answers: { a: "That is a question for the ages, my friend.", b: "you are who you are", c: "You are you, I am me." },
-            correctAnswer="a",
-        },
+        for (var j = 0; j < questions[i].answers.length; j++) 
         {
-            question: "What is my dog's name?",
-            answer: { a: "Hippolyta", b: "Jupiter", c: "A & B", d: "You have a dog?!" },
-            correctAnswer = "c",
 
-        },
-
-        ]
-    };
-
-
-
-
-
-
-    function showResults() {
-        if (correctAnswer === userAnswer){
-            
-        } else{
-            
+            $("#quizsub").append("<input type='radio' name='question-" + i + " 'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
         }
-
-
-            },
-
-    buildQuiz()
-
-    // on submit, show results
-    submitButton.addEventListener('click', showResults);
-
-    function timesUp() {
-        var score = calculateScore()
-        var location = "game.html" + score
     }
-    setTimeout("timesUp()", 60000)
+});
 
-
-
-
-});  
+var questions = [
+    {
+        question: "Why am I doing this assignment?",
+        answers: ["I don't want to be broke and homeless.", "Tucker said we had to...", "I want the certificate.", "All of the above"],
+        correctAnswer: "All of the above",
+    },
+    {
+        question: "What is Natalie's favorite drink?",
+        answers: ["coffee", "extra strong coffee", "monster energy drink", "something with alcohol in it - it's Friday, afterall", "B & D"],
+        correctAnswer: "B & D",
+    },
+    {
+        question: "What is my dog's name?",
+        answers: ["Hippolyta", "Jupiter", "Bear", "All of the above"],
+        correctAnswer: "All of the above!"
+    },
+    {
+        question: "What is the name of the gurgling sounds your stomach makes?",
+        answers: ["Hunger.", "Gurglies.", "Borborgymi.", "Feed yourself!"],
+        correctAnswer: "Borborgymi.",
+    }];
+});
