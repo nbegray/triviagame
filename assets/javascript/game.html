@@ -1,0 +1,45 @@
+<body>
+    <div id="main">
+        <!-- open main div -->
+        <div id="header">
+            <!-- open header div -->
+            <h1>JavaScript Quiz</h1>
+        </div>
+        <div id="quiz">
+            <form id="form1">
+
+                <h2>What is the name of the sounds your stomach makes when grumbling?</h2>
+                <label for="var_string"><input type="radio" name="variable" value="0" id="q1-1" />Stomach grumbling</label>
+                <label for="var_join"><input type="radio" name="variable" value="0" id="q1-2" />Hunger.</label>
+                <label for="var_info"><input type="radio" name="variable" value="25" id="q1-3" />Borborgymi.</label>
+                <label for="var_condition"><input type="radio" name="variable" value="0" id="q1-4" />Noise.</label>
+
+                <h2>What is the name of the water bottle I have on my desk?</h2>
+                <label for="sub_string"><input type="radio" name="sub" value="25" id="sub_string" />Kroger.</label>
+                <label for="sub_join"><input type="radio" name="sub" value="0" id="sub_join" />Alhambra.</label>
+                <label for="sub_info"><input type="radio" name="sub" value="0" id="sub_info" />Aquafina</label>
+                <label for="sub_condition"><input type="radio" name="sub" value="0" id="sub_condition" />Fiji</label>
+
+                <h2>What is the name of my dog?</h2>
+                <label for="cat_string"><input type="radio" name="con" value="0" id="cat_string" />Polly</label>
+                <label for="cat_join"><input type="radio" name="con" value="0" id="cat_join" />Bear</label>
+                <label for="cat_info"><input type="radio" name="con" value="25" id="cat_info" />Jupiter</label>
+                <label for="cat_condition"><input type="radio" name="con" value="0" id="cat_condition" />You don't have a dog.</label>
+
+                <h2>Why am I making a quiz?</h2>
+                <label for="if_string"><input type="radio" name="ifstate" value="0" id="if_string" />It's homework.</label>
+                <label for="if_join"><input type="radio" name="ifstate" value="0" id="if_join" />You wanted to...</label>
+                <label for="if_info"><input type="radio" name="ifstate" value="0" id="if_info" />It's fun?</label>
+                <label for="if_condition"><input type="radio" name="ifstate" value="25" id="if_condition" />I have no idea.</label>
+
+                <button type="submit" value="Submit">Submit</button>
+
+            </form>
+        </div>
+
+
+        <p>Your grade is: <span id="grade">__</span></p>
+        <p id="grade2"></p>
+        <script src="assets/javascript/app.js"></script>
+    </div>
+</body>
