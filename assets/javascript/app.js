@@ -1,17 +1,16 @@
-$(document).ready(function () 
-{
+$(document).ready(function () {
 
-    var quizContainer = document.getElementById('quiz');
-    var resultsContainer = document.getElementById('results');
-    var submitButton = document.getElementById('submit');
+    var quizContainer = document.getElementById("quiz");
+    var resultsContainer = document.getElementById("results");
+    var submitButton = document.getElementById("submit");
     console.log(quizContainer);
 
-var currentQuestion = myQuestions[i],
-var answers = [],
+    var currentQuestion = myQuestions[i],
+    var answers = [],
 
 
     function buildQuiz() {
-        var output = [];
+        var output = myQuestions[i];
 
 
 
@@ -33,30 +32,36 @@ var answers = [],
 
         },
 
-        ];
+        ]
+    };
 
 
-        
 
 
 
-            function showResults() {
 
-
-            }
-            buildQuiz();
-
-            // on submit, show results
-            submitButton.addEventListener('click', showResults);
+    function showResults() {
+        if (correctAnswer === userAnswer){
             
-            function timesUp()
-            {
-            var score = calculateScore()
-            var location = "game.html" + score
-            }
-            setTimeout("timesUp()",60000)
+        } else{
             
-            
+        }
 
 
-        });  
+            },
+
+    buildQuiz()
+
+    // on submit, show results
+    submitButton.addEventListener('click', showResults);
+
+    function timesUp() {
+        var score = calculateScore()
+        var location = "game.html" + score
+    }
+    setTimeout("timesUp()", 60000)
+
+
+
+
+});  
