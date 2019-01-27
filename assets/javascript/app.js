@@ -1,6 +1,10 @@
 $(document).ready(function () {
+
     $("#start").on('click', function () {
-      game.start ();
+        game.start ();
+
+        
+
         var questions = [
 
             {
@@ -26,21 +30,9 @@ $(document).ready(function () {
 
 
 
-        $("#start").remove();
-        {
-            for (i = 0; i < questions.length; i++) {
-                $("#quizsub").append("<h3>" + questions[i].question + "</h3>")
-                {
-                    for (var j = 0; j < (questions[i].answers.length); j++) {
 
 
-                        $("#quizsub").append("<input type='radio' name='question- " + i + " 'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
 
-                    }
-                }
-            }
-
-        };
 
 
 
@@ -57,13 +49,76 @@ $(document).ready(function () {
                 }
 
             },
-            start: function () {
+
+            start:function () {
                 timer = setInterval(game.countdown, 1000);
-                $("#quizsub").prepend("<h2>Time Remaining: <span id='counter' 120 Seconds </span> </h2>")
+
+                $("#quizsub").prepend("<h2>Time Remaining: <span id='counter' 120 Seconds </span> </h2>");
+                $("#start").remove();
+
+                for (i = 0; i < questions.length; i++) 
+                {
+                    $("#quizsub").append("<h3>" + questions[i].question + "</h3>")}
+
+                    for (var j = 0; j < (questions[i].answers.length); j++) {
+
+
+                        $("#quizsub").append("<input type='radio' name='question- " + i + " 'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
+
+                    }
+
+                
+
             },
-            done: function(){
+
+
+            done:function () {
+                $.each($('input[name="question-0]":checked'), function()
+                {
+                    if($(this).val() == questions[0].correctAnswer){
+                        game.correct++;
+                    }else{
+                        game.wrong++;
+                    }
+                });
+                $.each($('input[name="question-1]":checked'), function()
+                {
+                    if($(this).val() == questions[1].correctAnswer){
+                        game.correct++;
+                    }else{
+                        game.wrong++;
+                    }
+                });
+                $.each($('input[name="question-2]":checked'), function()
+                {
+                    if($(this).val() == questions[2].correctAnswer){
+                        game.correct++;
+                    }else{
+                        game.wrong++;
+                    }
+                });
+                $.each($('input[name="question-3]":checked'), function()
+                {
+                    if($(this).val() == questions[3].correctAnswer){
+                        game.correct++;
+                    }else{
+                        game.wrong++;
+                    }
+                });
+                this.result();
+            },
+            result:function (){
+                clearInterval(timer);
+                $('#quizsub h2').remove();
+                $('#quizsub').html("<h2> All Done!</h2>");
+                $('#quizsub').append("<h3> Correct Answers:  "+ this.correct)+ "</h3>";
+                $('#quizsub').append("<h3>Wrong Answers:   " + this.wrong + "</h3>");
+                
 
             }
+
+
+        
 
         };
 
