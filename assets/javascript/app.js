@@ -2,9 +2,11 @@ $(document).ready(function () {
 
     $("#start").on('click', function () {
         game.start()
-    });
+    })
 
-
+$(document).on('click', "#end", function (){
+    game.done();
+})
 
     var questions = [
 
@@ -30,13 +32,6 @@ $(document).ready(function () {
         }];
 
 
-
-
-
-
-
-
-
     var game = {
         correct: 0,
         wrong: 0,
@@ -58,36 +53,37 @@ $(document).ready(function () {
 
             for (i = 0; i < questions.length; i++) {
                 $("#quizsub").append("<h3>" + questions[i].question + "</h3>")
-            };
+            }
 
             for (var j = 0; j < (questions[i].answers.length); j++) {
 
 
                 $("#quizsub").append("<input type='radio' name='question- " + i + " 'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
 
-            };
+            }
 
+           $('#quizsub').append('<br><br><button id="end"> DONE!</button>');
 
 
         },
 
 
         done: function () {
-            $.each($('input[name="question-0]":checked'), function () {
+            $.each($('input[name="question-0"]:checked'), function () {
                 if ($(this).val() === questions[0].correctAnswer) {
                     this.correct++;
                 } else {
                     this.wrong++;
                 }
             });
-            $.each($('input[name="question-1]":checked'), function () {
+            $.each($('input[name="question-1"]:checked'), function () {
                 if ($(this).val() === questions[1].correctAnswer) {
                     this.correct++;
                 } else {
                     this.wrong++;
                 }
             });
-            $.each($('input[name="question-2]":checked'), function () {
+            $.each($('input[name="question-2"]:checked'), function () {
                 if ($(this).val() === questions[2].correctAnswer) {
                     this.correct++;
                 } else {
@@ -115,7 +111,7 @@ $(document).ready(function () {
 
 
         },
-        
+
 
 
 
