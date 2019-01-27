@@ -48,7 +48,9 @@ $(document).on('click', "#end", function (){
 
         start: function () {
             timer = setInterval(game.countdown, 500);
+
             $("#quizsub").prepend("<h2>Time Remaining: <span id='counter' 30 Seconds </span> </h2>");
+
             $("#start").remove();
 
             for (i = 0; i < questions.length; i++) {
@@ -58,7 +60,7 @@ $(document).on('click', "#end", function (){
             for (var j = 0; j < (questions[i].answers.length); j++) {
 
 
-                $("#quizsub").append("<input type='radio' name='question- " + i + " 'value= '" + questions[i].answers[j] + "'>" + questions[i].answers[j])
+                $("#quizsub").append("<input type='radio' name='question-' " + i + " 'value= '" + questions[i].answers[j] + ">" + questions[i].answers[j])
 
             }
 
@@ -69,32 +71,32 @@ $(document).on('click', "#end", function (){
 
 
         done: function () {
-            $.each($('input[name="question-0"]:checked'), function () {
-                if ($(this).val() === questions[0].correctAnswer) {
+            $.each($("input[name='question-0']:checked"), function () {
+                if ($(this).val() == questions[0].correctAnswer) {
                     this.correct++;
                 } else {
                     this.wrong++;
                 }
             });
-            $.each($('input[name="question-1"]:checked'), function () {
-                if ($(this).val() === questions[1].correctAnswer) {
-                    this.correct++;
+            $.each($("input[name='question-1']:checked"), function () {
+                if ($(this).val() == questions[1].correctAnswer) {
+                    game.correct++;
                 } else {
-                    this.wrong++;
+                    game.wrong++;
                 }
             });
-            $.each($('input[name="question-2"]:checked'), function () {
-                if ($(this).val() === questions[2].correctAnswer) {
-                    this.correct++;
+            $.each($("input[name='question-2'] :checked"), function () {
+                if ($(this).val() == questions[2].correctAnswer) {
+                    game.correct++;
                 } else {
-                    this.wrong++;
+                    game.wrong++;
                 }
             });
-            $.each($('input[name="question-3]":checked'), function () {
-                if ($(this).val() === questions[3].correctAnswer) {
-                    this.correct++;
+            $.each($("input[name='question-3']:checked"), function () {
+                if ($(this).val() == questions[3].correctAnswer) {
+                    game.correct++;
                 } else {
-                    this.wrong++;
+                    game.wrong++;
                 }
             });
             this.result();
@@ -105,9 +107,9 @@ $(document).on('click', "#end", function (){
             clearInterval(timer);
             $('#quizsub h2').remove();
             $('#quizsub').html("<h2> All Done!</h2>");
-            $('#quizsub').append("<h3> Correct Answers:  " + this.correct) + "</h3>";
-            $('#quizsub').append("<h3>Wrong Answers:   " + this.wrong + "</h3>");
-            $('#quizsub').append("<h3>Unanswered Questions: " + (questions.length - (this.wrong + this.correct)) + "</h3>");
+            $('#quizsub').append("<h3> Correct Answers:  " + game.correct) + "</h3>";
+            $('#quizsub').append("<h3>Wrong Answers:   " + game.wrong + "</h3>");
+            $('#quizsub').append("<h3>Unanswered Questions: " + (questions.length - (game.wrong + game.correct)) + "</h3>");
 
 
         },
