@@ -53,56 +53,39 @@ $(document).ready(function () {
 
             $("#start").remove();
 
-            for (i = 0; i < questions.length; i++) {
-                $("#quizsub").append("<h3>" + questions[i].question + "</h3>")
+            for (var i = 0; i < questions.length; i++) {
+                $("#quizsub").append("<h3>" + questions[i].question + "</h3>");
 
 
                 for (var j = 0; j < (questions[i].answers.length); j++) {
 
 
-                    $("#quizsub").append("<input type='radio' name='question-' " + i + " 'value= '" + questions[i].answers[j] + ">" + questions[i].answers[j])
+                    $("#quizsub").append("<input type='radio' name='question- " + i + " 'value= '" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
 
-                };
-            };
-                $('#quizsub').append('<br><br><button id="end"> DONE!</button>');
+                }
+            }
+            $('#quizsub').append('<br><br><button id="end"> DONE!</button>');
 
 
-            
+
         },
+        
 
 
-            done: function () {
-                $.each($("input[name='question-0']:checked"), function () {
-                    if ($(this).val() == questions[0].correctAnswer) {
-                        this.correct++;
-                    } else {
-                        this.wrong++;
-                    }
-                });
-                $.each($("input[name='question-1']:checked"), function () {
-                    if ($(this).val() == questions[1].correctAnswer) {
-                        game.correct++;
-                    } else {
-                        game.wrong++;
-                    }
-                });
-                $.each($("input[name='question-2'] :checked"), function () {
-                    if ($(this).val() == questions[2].correctAnswer) {
-                        game.correct++;
-                    } else {
-                        game.wrong++;
-                    }
-                });
-                $.each($("input[name='question-3']:checked"), function () {
-                    if ($(this).val() == questions[3].correctAnswer) {
-                        game.correct++;
-                    } else {
-                        game.wrong++;
-                    }
-                });
-                this.result();
-
-            },
+        done: function () {
+            console.log("done function fired");
+            var inputs = $("#quizsub").children("input:checked");
+            console.log(inputs);
+            for (var i = 0; i < inputs.length; i++) {
+                if ($(inputs[i]).val() === questions[i].correctAnswer) {
+                    game.correct++;
+                } else {
+                    game.wrong++;
+                }
+            }
+            game.result();
+        },
+            
 
             result: function () {
                 clearInterval(timer);
