@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $("#start").on('click', function () {
         game.start()
-    }),
+    });
 
     $(document).on('click', "#end", function () {
         game.done();
@@ -12,23 +12,23 @@ $(document).ready(function () {
 
         {
             question: "Why am I doing this assignment?",
-            answers: ["I don't want to be broke and homeless.", "Tucker said we had to...", "I want the certificate.", "All of the above"],
-            correctAnswer: "All of the above",
+            answers: ["I dont want to be broke and homeless.", "Tucker said we had to...", "I want the certificate.", "This"],
+            correctAnswer: "This",
         },
         {
             question: "What is Natalie's favorite drink?",
-            answers: ["coffee", "extra strong coffee", "monster energy drink", "something with alcohol in it - it's Friday, afterall", "B & D"],
-            correctAnswer: "B & D",
+            answers: ["coffee", "extra strong coffee", "monster energy drink", "something with alcohol in it - its Friday, afterall", "None"],
+            correctAnswer: "something with alcohol in it - its Friday, afterall",
         },
         {
-            question: "What is my dog's name?",
-            answers: ["Hippolyta", "Jupiter", "Bear", "All of the above"],
-            correctAnswer: "All of the above!"
+            question: "What is my dogs name?",
+            answers: ["Hippolyta", "Jupiter", "Bear", "Joy"],
+            correctAnswer: "Jupiter"
         },
         {
             question: "What is the name of the gurgling sounds your stomach makes?",
-            answers: ["Hunger.", "Gurglies.", "Borborgymi.", "Feed yourself!"],
-            correctAnswer: "Borborgymi.",
+            answers: ["Hunger", "Gurglies", "Borborgymi", "Feed yourself!"],
+            correctAnswer: "Borborgymi",
         }];
 
 
@@ -47,9 +47,9 @@ $(document).ready(function () {
         },
 
         start: function () {
-            timer = setInterval(game.countdown, 500);
+            timer = setInterval(game.countdown, 1000);
 
-            $("#quizsub").prepend("<h2>Time Remaining: <span id='counter' 30 Seconds </span> </h2>");
+            $("#quizsub").prepend("<h2>Time Remaining: <span id='counter'> 30 Seconds </span> </h2>");
 
             $("#start").remove();
 
@@ -60,7 +60,7 @@ $(document).ready(function () {
                 for (var j = 0; j < (questions[i].answers.length); j++) {
 
 
-                    $("#quizsub").append("<input type='radio' name='question- " + i + " 'value= '" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
+                    $("#quizsub").append("<input type='radio' name='question- " + i + " ' value= '" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
 
                 }
             }
